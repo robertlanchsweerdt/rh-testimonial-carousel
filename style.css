@@ -1,0 +1,143 @@
+body {
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+#rh-testimonials-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 40px;
+
+  width: min(100%, 1200px);
+  margin: 0 auto;
+
+  /* do not include these lines in production code  */
+  outline: solid 1px red;
+  margin-top: 10rem;
+  /* end do not include lines */
+}
+
+.rh-testimonials {
+  flex-basis: 525px;
+  height: 255px;
+}
+
+.rh-testimonials__image-profile {
+  position: relative;
+  flex-basis: 500px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.rh-testimonials__image-profile::after {
+  position: absolute;
+  content: url('./heart-vector.png');
+  top: -70px;
+  left: -135px;
+  width: 280px;
+  height: 241px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 862px) {
+  #rh-testimonials-section {
+    align-items: center;
+  }
+}
+
+@media (max-width: 819px) {
+  #rh-testimonials-section {
+    flex-wrap: wrap;
+  }
+
+  .rh-testimonials,
+  .rh-testimonials__image-profile {
+    flex-grow: 1;
+  }
+
+  .rh-testimonials {
+    height: 350px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* typography */
+
+.rh-testimonials h2 {
+  color: #44797b;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.rh-testimonial__slide {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* radial buttons */
+.rh-testimonial__radial-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.rh-testimonial__radial-btn {
+  width: 18px;
+  height: 18px;
+  background-color: #e6e6e6;
+  border-radius: 100%;
+  transition: background-color 200ms ease-in-out;
+
+  cursor: pointer;
+}
+
+.rh-radial-active {
+  background-color: #242424;
+}
+
+/* buttons */
+
+.rh-testimonials__btn {
+  position: absolute;
+  top: 40%;
+  z-index: 100;
+}
+
+.rh-testimonials__btn-prev {
+  left: 0;
+}
+
+.rh-testimonials__btn-next {
+  right: 0;
+}
+
+/* build out slider */
+
+.rh-testimonials__slider {
+  position: relative;
+  height: 160px;
+}
+
+.rh-testimonial__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+
+  transition: opacity 200ms ease-in-out;
+}
+
+.rh-testimonial__slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
